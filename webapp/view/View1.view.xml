@@ -1,0 +1,186 @@
+<mvc:View
+    controllerName="com.sap.invoicing.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:core="sap.ui.core"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:u="sap.ui.unified"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:upload="sap.m.upload"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <uxap:ObjectPageLayout
+                id="ObjectPageLayout"
+                upperCaseAnchorBar="false"
+                showAnchorBar="true"
+                enableLazyLoading="true"
+            >
+                <uxap:sections>
+                    <uxap:ObjectPageSection
+                        id="_IDGenObjectPageSection1"
+                        showTitle="false"
+                    >
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection
+                                id="_IDGenObjectPageSubSection1"
+                                title="General Info "
+                            >
+                                <uxap:blocks>
+                                    <f:SimpleForm
+                                        id="_IDGenSimpleForm1"
+                                        editable="true"
+                                        layout="ResponsiveGridLayout"
+                                        labelSpanXL="3"
+                                        labelSpanL="3"
+                                        labelSpanM="3"
+                                        labelSpanS="12"
+                                        adjustLabelSpan="false"
+                                        emptySpanXL="5"
+                                        emptySpanL="5"
+                                        emptySpanM="5"
+                                        emptySpanS="0"
+                                        columnsXL="1"
+                                        columnsL="1"
+                                        columnsM="1"
+                                        singleContainerFullSize="false"
+                                    >
+                                        <Label
+                                            id="_IDGenLabel1"
+                                            text="Customer"
+                                        />
+
+                                        <Input value="KPO" editable="false" />
+                                        <Label
+                                            id="_IDGenLabel23"
+                                            text="Contract"
+                                        />
+                                        <Input value="" />
+                                        <Label
+                                            id="_IDGenLabel24"
+                                            text="Call-off"
+                                        />
+                                        <Input value="" />
+                                        <Label
+                                            id="_IDGenLabel2"
+                                            text="Amendment"
+                                        />
+                                        <Input value="" editable="false" />
+
+                                      <Label
+                                            id="_IDGenLabwel2"
+                                            text="Invoice type"
+                                        />
+                                        <Input value=""  />
+                                         <Label
+                                            id="_IDGenLabwelq2"
+                                            text="Invoice Date"
+                                        />
+                                        <DatePicker />
+                                         <Label
+                                            id="_IDGenLeeabwel2"
+                                            text="Amount"
+                                        />
+                                        <Input value=""  />
+                                         <Label
+                                            id="_IDfGenLabwel2"
+                                            text="Description"
+                                        />
+                                        <Input value=""  />
+                                         <Label
+                                            id="_IDGeffnLabwel2"
+                                            text="Application for payment applicable"
+                                        />
+                                          <RadioButtonGroup
+                            columns="2"
+                            
+                        >
+                            <RadioButton text="Yes" />
+                            <RadioButton text="No" />
+                        </RadioButtonGroup>
+                                    </f:SimpleForm>
+                                </uxap:blocks>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                        
+                        <uxap:subSections>
+                            <uxap:ObjectPageSubSection
+                                id="newObjectPageSubSectionID1"
+                                title="Attachments"
+                            >
+                                <uxap:blocks>
+                                    <upload:UploadSet
+                                        id="uploadSet"
+                                        instantUpload="false"
+                                        uploadEnabled="true"
+                                        afterItemAdded="onAfterItemAdded"
+                                        uploadCompleted="onUploadCompleted"
+                                        items="{
+                        path: '/Files',
+                        parameters: {
+                            $orderby: 'createdAt desc'
+                        },
+                        templateShareable: false}"
+                                    >
+                                        <upload:items>
+                                            <upload:UploadSetItem
+                                                fileName="{fileName}"
+                                                mediaType="{mediaType}"
+                                                url="{url}"
+                                                enabledEdit="false"
+                                                visibleEdit="false"
+                                                openPressed="onOpenPressed"
+                                            >
+                                                <upload:attributes>
+                                                    <ObjectAttribute
+                                                        title="Uploaded By"
+                                                        text="{createdBy}"
+                                                        active="false"
+                                                    />
+                                                    <ObjectAttribute
+                                                        title="Uploaded on"
+                                                        text="{createdAt}"
+                                                        active="false"
+                                                    />
+                                                    <ObjectAttribute
+                                                        title="File Size"
+                                                        text="{size}"
+                                                        active="false"
+                                                    />
+                                                </upload:attributes>
+                                            </upload:UploadSetItem>
+                                        </upload:items>
+                                    </upload:UploadSet>
+                                </uxap:blocks>
+                            </uxap:ObjectPageSubSection>
+                        </uxap:subSections>
+                    </uxap:ObjectPageSection>
+                </uxap:sections>
+            </uxap:ObjectPageLayout>
+        </content>
+        <footer>
+            <OverflowToolbar id="_IDGenOverflowToolbar2">
+                <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+                <Button
+                    id="_IDGenButton7"
+                    text="Save"
+                    press="onSave"
+                />
+                <Button
+                    id="_IDGenButton71"
+                    text="Submit"
+                    press="onSubmit"
+                />
+                <Button
+                    id="_IDGenButton8"
+                    text="Cancel"
+                />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
